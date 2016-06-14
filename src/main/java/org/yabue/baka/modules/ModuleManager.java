@@ -49,11 +49,7 @@ public class ModuleManager {
     /**
      * Loads all modules which are enabled in the module.conf.
      *
-     * @throws IOException
-     * @throws ClassNotFoundException
-     * @throws NoSuchMethodException
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
+     * @throws ModuleLoadException
      */
     private static void loadModules() throws ModuleLoadException {
         try {
