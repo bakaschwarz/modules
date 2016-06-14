@@ -1,6 +1,6 @@
 # Modules
 
-The idea behind this is, that you can have different modules in your project which are independent from each other and can be turned on and off using a simple configuration file.
+The idea is, that you can have different modules in your project which are independent from each other and can be turned on and off using a simple configuration file.
 
 ## The configuration file
 
