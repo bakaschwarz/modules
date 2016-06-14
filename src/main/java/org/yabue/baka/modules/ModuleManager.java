@@ -23,12 +23,23 @@ public class ModuleManager {
 
     private static String modulesPackagePath = ModuleManager.class.getPackage().getName();
 
+    /**
+     * These names will be added into a newly generated module configuration file.
+     */
     private static final String[] DEFAULT_MODULES = {"Core"};
 
     private static File moduleFile;
 
     private static final HashMap<String, AbstractModule> loadedModules;
 
+    /**
+     * This method must be called to enable the usage of modules.
+     * You need to provide the location of modules and the location of the configuration file.
+     *
+     * @param modulePackage The package name, that contains modules.
+     * @param moduleConfigurationLocation The location of the module configuration. Will be created if not existent.
+     * @throws ModuleLoadException
+     */
     public static void initialize(String modulePackage, File moduleConfigurationLocation) throws ModuleLoadException {
         moduleFile = moduleConfigurationLocation;
         modulesPackagePath = modulePackage;
