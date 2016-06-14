@@ -26,7 +26,6 @@ public class ModuleTest {
             FileUtils.write(moduleConf, "ModulB\n", true);
         }
         ModuleManager.initialize("org.yabue.baka.modules", moduleConf);
-        ModuleManager.loadModules();
     }
 
     @Test

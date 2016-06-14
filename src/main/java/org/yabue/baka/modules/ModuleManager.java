@@ -29,9 +29,10 @@ public class ModuleManager {
 
     private static final HashMap<String, AbstractModule> loadedModules;
 
-    public static void initialize(String modulePackage, File moduleConfigurationLocation) {
+    public static void initialize(String modulePackage, File moduleConfigurationLocation) throws ModuleLoadException {
         moduleFile = moduleConfigurationLocation;
         modulesPackagePath = modulePackage;
+        loadModules();
     }
 
     /**
@@ -43,7 +44,7 @@ public class ModuleManager {
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public static void loadModules() throws ModuleLoadException {
+    private static void loadModules() throws ModuleLoadException {
         try {
             if (!moduleFile.exists()) {
                 FileUtils.touch(moduleFile);
