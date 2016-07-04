@@ -116,6 +116,31 @@ public class ModuleManager {
         return null;
     }
 
+    /**
+     * This calls always a method called {@code defaultModuleCall} without arguments.
+     * Should ne used when you need a module which often performs the same operation over and over.
+     *
+     * For example if you need a logging module which simply needs a logging feature, then you can have
+     * this: {@code ModuleManager.invokeDefault("Log", "Message")}
+     * instead of this: {@code ModuleManager.invoke("Log", "logMethodName", "Message")}
+     *
+     * @param module The module, whose default method shall be called.
+     * @param arguments Possible arguments, if any.
+     * @param <R> Possible return value type.
+     * @return Returns the value which {@param methodS} returns, if any.
+     * @throws ModuleInvocationException
+     */
+    public static <R> R invokeDefault(String module, Object... arguments) throws ModuleInvocationException {
+        return invoke(module, "defaultModuleCall", arguments);
+    }
+
+    /**
+     * A shorthand for {@code invokeDefault}.
+     */
+    public static <R> R def(String module, Object... arguments) throws ModuleInvocationException {
+        return invoke(module, "defaultModuleCall", arguments);
+    }
+
     static {
         loadedModules = new HashMap<>();
     }

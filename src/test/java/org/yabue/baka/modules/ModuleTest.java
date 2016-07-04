@@ -32,7 +32,8 @@ public class ModuleTest {
     @Test
     public void testModules() throws ModuleInvocationException {
         assertEquals("Hello World!", ModuleManager.invoke("ModulA", "start"));
-        assertEquals(null, ModuleManager.invoke("ModulA", "falseMethod"));
+        assertNull(ModuleManager.invoke("ModulA", "falseMethod"));
+
     }
 
     @After
