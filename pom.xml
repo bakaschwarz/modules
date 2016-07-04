@@ -6,7 +6,8 @@
 
     <groupId>org.yabue.baka</groupId>
     <artifactId>modules</artifactId>
-    <version>1.0</version>
+    <name>Small and stupid modules</name>
+    <version>1.1</version>
 
     <build>
         <plugins>
@@ -20,7 +21,21 @@
                 </configuration>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>LATEST</version>
+            </extension>
+        </extensions>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>petal-ssh</id>
+            <url>scpexe://ssh.petal.dance:15693/var/www/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>

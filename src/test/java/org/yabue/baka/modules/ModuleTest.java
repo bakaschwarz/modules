@@ -1,6 +1,7 @@
 package org.yabue.baka.modules;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,5 +32,14 @@ public class ModuleTest {
     @Test
     public void testModules() throws ModuleInvocationException {
         assertEquals("Hello World!", ModuleManager.invoke("ModulA", "start"));
+        assertEquals(null, ModuleManager.invoke("ModulA", "falseMethod"));
+    }
+
+    @After
+    public void cleanUP() {
+        File moduleConf = new File("testConf.conf");
+        if(moduleConf.exists()) {
+            assertTrue(FileUtils.deleteQuietly(moduleConf));
+        }
     }
 }

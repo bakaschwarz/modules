@@ -1,19 +1,18 @@
 package org.yabue.baka.modules.ModulB;
 
-import org.yabue.baka.modules.AbstractModule;
+import org.yabue.baka.modules.BakaModuleInterface;
 import org.yabue.baka.modules.ModuleInvocationException;
 import org.yabue.baka.modules.ModuleManager;
 
 /**
- * TXT
+ * This is a test module.
  *
  * @author Yannick Bülter
  * @version 1.0
  */
-public class ModulB extends AbstractModule {
+public class ModulB implements BakaModuleInterface {
     @Override
-    protected void initialize() {
-
+    public void initialize() {
     }
 
     protected String callA() throws ModuleInvocationException {
